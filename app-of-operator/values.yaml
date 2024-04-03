@@ -30,6 +30,7 @@ applications:
          source: redhat-operators
          sourceNamespace: openshift-marketplace
          installPlanApproval: Automatic
+         namespace: openshift-operators
 
 #      - channel: gitops-1.12
 #        installPlanApproval: Manual
