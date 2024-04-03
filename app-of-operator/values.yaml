@@ -75,3 +75,9 @@ applications:
           managed: true
         - kind: clairpostgres
           managed: true
+
+  # ACS
+  - name: acs
+    enabled: true
+    source: https://mirror.openshift.com/pub/rhacs/charts/
+    chart_name: rhacs
