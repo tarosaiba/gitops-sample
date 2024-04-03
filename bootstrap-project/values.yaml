@@ -45,6 +45,6 @@ namespaces:
     role: admin
   namespace: *ci_cd
 
-serviceaccounts:
-- name: dummy-sa
-  namespace: *ci_cd
+#serviceaccounts:
+#- name: dummy-sa
+#  namespace: *ci_cd
