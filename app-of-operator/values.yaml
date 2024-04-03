@@ -11,10 +11,6 @@ applications:
     values:
      installPlanApproverAndVerifyJobsImage: registry.redhat.io/openshift4/ose-cli:v4.10@sha256:7804ea66ea8ca0f414148b8b3b52ae454800785e80a32bd8a5eb2db789014a00
 
-#     operatorGroups:
-#       - name: rhacs-operator
-#         createNamespace: true
-
      operators:
        - name: rhacs-operator
          channel: rhacs-4.4
@@ -45,36 +41,36 @@ applications:
   ################################################
   # Operators
   ################################################
-#  # Quay
-#  - name: quay
-#    enabled: true
-#    source: https://github.com/redhat-cop/helm-charts.git
-#    source_path: charts/quay
-#    source_ref: "main"
-#    values:
-#      infra_nodes: false
-#      quay_registry_config_bundle:
-#        # REGISTRY_TITLE: My Awesome Quay
-#        # add your configuration fields here
-#      registry_components:
-#        - kind: clair
-#          managed: true
-#        - kind: postgres
-#          managed: true
-#        - kind: objectstorage
-#          managed: true
-#        - kind: redis
-#          managed: true
-#        - kind: horizontalpodautoscaler
-#          managed: true
-#        - kind: route
-#          managed: true
-#        - kind: mirror
-#          managed: true
-#        - kind: monitoring
-#          managed: true
-#        - kind: tls
-#          managed: true
-#        - kind: quay
-#          managed: true
-#        - kind: clairpostgres
+  # Quay
+  - name: quay
+    enabled: true
+    source: https://github.com/redhat-cop/helm-charts.git
+    source_path: charts/quay
+    source_ref: "main"
+    values:
+      infra_nodes: false
+      quay_registry_config_bundle:
+        # REGISTRY_TITLE: My Awesome Quay
+        # add your configuration fields here
+      registry_components:
+        - kind: clair
+          managed: true
+        - kind: postgres
+          managed: true
+        - kind: objectstorage
+          managed: true
+        - kind: redis
+          managed: true
+        - kind: horizontalpodautoscaler
+          managed: true
+        - kind: route
+          managed: true
+        - kind: mirror
+          managed: true
+        - kind: monitoring
+          managed: true
+        - kind: tls
+          managed: true
+        - kind: quay
+          managed: true
+        - kind: clairpostgres
