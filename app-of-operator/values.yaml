@@ -22,6 +22,7 @@ applications:
          source: redhat-operators
          sourceNamespace: openshift-marketplace
          installPlanApproval: Automatic
+         namespace: rhacs-operator
 
        - name: quay-operator
          channel: stable-3.11
