@@ -11,6 +11,10 @@ applications:
     values:
      installPlanApproverAndVerifyJobsImage: registry.redhat.io/openshift4/ose-cli:v4.10@sha256:7804ea66ea8ca0f414148b8b3b52ae454800785e80a32bd8a5eb2db789014a00
 
+     operatorGroups:
+       - name: rhacs-operator
+         createNamespace: true
+
      operators:
        - name: rhacs-operator
          channel: rhacs-4.4
