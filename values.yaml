@@ -10,6 +10,14 @@ applications:
     helm_values:
       - app-of-bootstrap/values.yaml
 
+  # Operator
+  - name: app-of-operator
+    enabled: true
+    destination: "openshift-gitops"
+    source_path: "."
+    helm_values:
+      - app-of-operator/values.yaml
+
   # Tooling to support CI/CD
   - name: app-of-ci-cd-tool
     enabled: true
