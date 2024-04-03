@@ -4,7 +4,7 @@ source: https://github.com/tarosaiba/gitops-sample.git
 applications:
   # Bootstrap projects
   - name: app-of-bootstrap
-    enabled: false
+    enabled: true
     destination: "openshift-gitops"
     source_path: "."
     helm_values:
@@ -20,7 +20,7 @@ applications:
 
   # Tooling to support CI/CD
   - name: app-of-ci-cd-tool
-    enabled: false
+    enabled: true
     destination: "openshift-gitops"
     source_path: "."
     helm_values:
@@ -28,7 +28,7 @@ applications:
 
   # App of app
   - name: app-of-app
-    enabled: false
+    enabled: true
     destination: "openshift-gitops"
     source_path: "."
     helm_values:
