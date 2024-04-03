@@ -4,7 +4,7 @@ applications:
   # Operator Installer
   ################################################
   - name: operators-installer
-    enabled: false
+    enabled: true
     source: https://github.com/redhat-cop/helm-charts.git
     source_path: charts/operators-installer
     source_ref: "main"
@@ -12,7 +12,7 @@ applications:
      installPlanApproverAndVerifyJobsImage: registry.redhat.io/openshift4/ose-cli:v4.10@sha256:7804ea66ea8ca0f414148b8b3b52ae454800785e80a32bd8a5eb2db789014a00
 
      operatorGroups:
-       - name:
+       - name: rhacs-operator-h5kpb
          createNamespace:
          targetOwnNamespace:
          otherTargetNamespaces:
@@ -24,12 +24,14 @@ applications:
          source: redhat-operators
          sourceNamespace: openshift-marketplace
          installPlanApproval: Automatic
+
        - name: quay-operator
          channel: stable-3.11
          csv: quay-operator.v3.11.0
          source: redhat-operators
          sourceNamespace: openshift-marketplace
          installPlanApproval: Automatic
+
 #      - channel: gitops-1.12
 #        installPlanApproval: Manual
 #        name: openshift-gitops-operator
