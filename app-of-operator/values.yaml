@@ -2,7 +2,7 @@ applications:
 
   # Quay
   - name: quay
-    enabled: false
+    enabled: true
     source: https://github.com/redhat-cop/helm-charts.git
     source_path: charts/quay
     source_ref: "main"
