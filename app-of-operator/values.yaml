@@ -1,35 +1,69 @@
 applications:
 
-  # Quay
-  - name: quay
+  ################################################
+  # Operator Installer
+  ################################################
+  - name: operators-installer
     enabled: true
     source: https://github.com/redhat-cop/helm-charts.git
-    source_path: charts/quay
+    source_path: charts/operators-installer
     source_ref: "main"
     values:
-      infra_nodes: false
-      quay_registry_config_bundle:
-        # REGISTRY_TITLE: My Awesome Quay
-        # add your configuration fields here
-      registry_components:
-        - kind: clair
-          managed: true
-        - kind: postgres
-          managed: true
-        - kind: objectstorage
-          managed: true
-        - kind: redis
-          managed: true
-        - kind: horizontalpodautoscaler
-          managed: true
-        - kind: route
-          managed: true
-        - kind: mirror
-          managed: true
-        - kind: monitoring
-          managed: true
-        - kind: tls
-          managed: true
-        - kind: quay
-          managed: true
-        - kind: clairpostgres
+     operators:
+#      - channel: gitops-1.12
+#        installPlanApproval: Manual
+#        name: openshift-gitops-operator
+#        source: redhat-operators
+#        sourceNamespace: openshift-marketplace
+#        csv: openshift-gitops-operator.v1.12.0
+#        namespace: openshift-gitops-operator
+       - name: rhacs-operator
+         channel: rhacs-4.4
+         csv: rhacs-operator.v4.4.0
+         source: redhat-operators
+         sourceNamespace: openshift-marketplace
+         installPlanApproval: Automatic
+       - name: quay-operator
+         channel: stable-3.11
+         csv: quay-operator.v3.11.0
+         source: redhat-operators
+         sourceNamespace: openshift-marketplace
+         installPlanApproval: Automatic
+
+
+  ################################################
+  # Operators
+  ################################################
+#  # Quay
+#  - name: quay
+#    enabled: true
+#    source: https://github.com/redhat-cop/helm-charts.git
+#    source_path: charts/quay
+#    source_ref: "main"
+#    values:
+#      infra_nodes: false
+#      quay_registry_config_bundle:
+#        # REGISTRY_TITLE: My Awesome Quay
+#        # add your configuration fields here
+#      registry_components:
+#        - kind: clair
+#          managed: true
+#        - kind: postgres
+#          managed: true
+#        - kind: objectstorage
+#          managed: true
+#        - kind: redis
+#          managed: true
+#        - kind: horizontalpodautoscaler
+#          managed: true
+#        - kind: route
+#          managed: true
+#        - kind: mirror
+#          managed: true
+#        - kind: monitoring
+#          managed: true
+#        - kind: tls
+#          managed: true
+#        - kind: quay
+#          managed: true
+#        - kind: clairpostgres
