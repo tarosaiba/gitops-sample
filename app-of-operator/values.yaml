@@ -39,9 +39,8 @@ applications:
 
 
   ################################################
-  # Operators
+  # Quay Instance
   ################################################
-  # Quay
   - name: quay
     enabled: true
     source: https://github.com/redhat-cop/helm-charts.git
@@ -76,7 +75,9 @@ applications:
         - kind: clairpostgres
           managed: true
 
-  # ACS
+  ################################################
+  # ACS Central
+  ################################################
   - name: acs
     enabled: true
     source: https://mirror.openshift.com/pub/rhacs/charts/
