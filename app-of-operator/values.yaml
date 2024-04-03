@@ -10,13 +10,6 @@ applications:
     source_ref: "main"
     values:
      operators:
-#      - channel: gitops-1.12
-#        installPlanApproval: Manual
-#        name: openshift-gitops-operator
-#        source: redhat-operators
-#        sourceNamespace: openshift-marketplace
-#        csv: openshift-gitops-operator.v1.12.0
-#        namespace: openshift-gitops-operator
        - name: rhacs-operator
          channel: rhacs-4.4
          csv: rhacs-operator.v4.4.0
@@ -29,6 +22,14 @@ applications:
          source: redhat-operators
          sourceNamespace: openshift-marketplace
          installPlanApproval: Automatic
+#      - channel: gitops-1.12
+#        installPlanApproval: Manual
+#        name: openshift-gitops-operator
+#        source: redhat-operators
+#        sourceNamespace: openshift-marketplace
+#        csv: openshift-gitops-operator.v1.12.0
+#        namespace: openshift-gitops-operator
+
 
 
   ################################################
