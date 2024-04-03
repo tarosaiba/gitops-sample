@@ -74,3 +74,4 @@ applications:
         - kind: quay
           managed: true
         - kind: clairpostgres
+          managed: true
