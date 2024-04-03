@@ -83,3 +83,4 @@ applications:
     source: https://mirror.openshift.com/pub/rhacs/charts/
     chart_name: rhacs/central-services
     source_ref: "400.4.0"
+    destination: "rhacs-operator"
