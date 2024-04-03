@@ -4,7 +4,7 @@ applications:
   # Operator Installer
   ################################################
   - name: operators-installer
-    enabled: true
+    enabled: false
     source: https://github.com/redhat-cop/helm-charts.git
     source_path: charts/operators-installer
     source_ref: "main"
