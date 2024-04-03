@@ -1,0 +1,27 @@
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: webapp-color
+spec:
+  to:
+    kind: Service
+    name: blue-webapp
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None
+
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: webapp-color-check
+spec:
+  to:
+    kind: Service
+    name: green-webapp
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None

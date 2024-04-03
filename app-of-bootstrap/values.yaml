@@ -1,0 +1,38 @@
+destination: sample-deployment-ci-cd
+ci_cd_namespace: &ci_cd "sample-deployment-ci-cd"
+poc_namespace: &poc "sample-deployment-poc"
+dev_namespace: &dev "sample-deployment-dev"
+staging_namespace: &stage "sample-deployment-staging"
+production_namespace: &prod "sample-deployment-production"
+
+applications:
+  # Bootstrap Project
+  - name: bootstrap
+    enabled: true
+    source: https://github.com/tarosaiba/gitops-sample.git
+    source_path: ./bootstrap-project
+    values:
+      bindings: &binds # this sample-deployment-devs is the GROUP NAME in IDM
+        - name: sample-deployment-devs
+          kind: Group
+          role: edit
+        # this sample-deployment-admins is the GROUP NAME in IDM
+        - name: sample-deployment-admins
+          kind: Group
+          role: admin
+      namespaces:
+        - name: *ci_cd
+          bindings: *binds
+          operatorgroup: false
+        - name: *dev
+          bindings: *binds
+          operatorgroup: true
+        - name: *stage
+          bindings: *binds
+          operatorgroup: true
+        - name: *prod
+          bindings: *binds
+          operatorgroup: true
+        - name: *poc
+          bindings: *binds
+          operatorgroup: true

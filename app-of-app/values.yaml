@@ -1,0 +1,26 @@
+source: https://github.com/tarosaiba/gitops-sample.git
+
+applications:
+  # Dev
+  - name: dev-app
+    enabled: true
+    no_helm: true
+    destination: "sample-deployment-dev"
+    source_path: "kustomize/overlays/dev"
+    automated: "true"
+
+  # Staging
+  - name: staging-app
+    enabled: true
+    no_helm: true
+    destination: "sample-deployment-staging"
+    source_path: "kustomize/overlays/staging"
+    automated: "true"
+
+  # Production
+  - name: production-app
+    enabled: true
+    no_helm: true
+    destination: "sample-deployment-production"
+    source_path: "kustomize/overlays/production"
+    automated: "false"

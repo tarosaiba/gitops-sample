@@ -1,0 +1,93 @@
+##################################################################################################
+# BLUE webapp
+##################################################################################################
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blue-webapp
+  labels:
+    app: blue-webapp
+    service: blue-webapp
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: blue-webapp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-webapp
+  labels:
+    app: blue-webapp
+    
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: blue-webapp
+  revisionHistoryLimit: 5
+  template:
+    metadata:
+      labels:
+        app: blue-webapp
+    spec:
+      containers:
+      - name: webapp-color
+        image: kodekloud/webapp-color
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: APP_COLOR
+          value: "blue"
+      serviceAccountName: default
+
+##################################################################################################
+# GREEN webapp
+##################################################################################################
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: green-webapp
+  labels:
+    app: green-webapp
+    service: green-webapp
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: green-webapp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-webapp
+  labels:
+    app: green-webapp
+    
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: green-webapp
+  revisionHistoryLimit: 5
+  template:
+    metadata:
+      labels:
+        app: green-webapp
+    spec:
+      containers:
+      - name: webapp-color
+        image: kodekloud/webapp-color
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: APP_COLOR
+          value: "green"
+      serviceAccountName: default

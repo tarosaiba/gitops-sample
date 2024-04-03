@@ -1,0 +1,27 @@
+# change source and team
+source: https://github.com/tarosaiba/gitops-sample.git
+
+applications:
+  # Bootstrap projects
+  - name: app-of-bootstrap
+    enabled: true
+    destination: "openshift-gitops"
+    source_path: "."
+    helm_values:
+      - app-of-bootstrap/values.yaml
+
+  # Tooling to support CI/CD
+  - name: app-of-ci-cd-tool
+    enabled: true
+    destination: "openshift-gitops"
+    source_path: "."
+    helm_values:
+      - app-of-ci-cd-tool/values.yaml
+
+  # App of app
+  - name: app-of-app
+    enabled: true
+    destination: "openshift-gitops"
+    source_path: "."
+    helm_values:
+      - app-of-app/values.yaml

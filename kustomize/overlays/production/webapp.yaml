@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-webapp
+  labels:
+    app: blue-webapp
+    
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+      - name: webapp-color
+        image: kodekloud/webapp-color:latest
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-webapp
+  labels:
+    app: green-webapp
+    
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: webapp-color
+        image: kodekloud/webapp-color:latest
