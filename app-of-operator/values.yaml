@@ -82,4 +82,3 @@ applications:
     enabled: true
     source: https://mirror.openshift.com/pub/rhacs/charts/
     chart_name: rhacs/central-services
-    source_ref: "1.1.4"
