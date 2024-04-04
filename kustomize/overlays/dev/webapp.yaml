@@ -5,9 +5,9 @@ metadata:
   name: blue-webapp
   labels:
     app: blue-webapp
-    
+
 spec:
-  replicas: 2
+  replicas: 4
   template:
     spec:
       containers:
@@ -21,7 +21,7 @@ metadata:
   name: green-webapp
   labels:
     app: green-webapp
-    
+
 spec:
   replicas: 1
   template:
